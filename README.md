@@ -22,3 +22,8 @@ Vajadzīgo rīku lejupielāde:
 Spēles palaišana:
 
 -- Izveidot jaunu vizard failu, iekopēt iegūto kodu no GitHub un palaist failu, spiežot uz rīku joslā esošās zaļās bultas
+
+Spēles kontroles:
+
+-- Tinker objektu var kustināt ar bultiņu taustiņiem
+-- Objektam var mainīt krāsu, spiežot atstarpes taustiņu
