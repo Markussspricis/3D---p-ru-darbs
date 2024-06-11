@@ -1,21 +1,22 @@
-#Sienas--------------------------------------------------------------------------
+#Grída--------------------------------------------------------------
 
 
-    
-# Load the textures
-stripe_textures = [
-    viz.addTexture('https://t4.ftcdn.net/jpg/05/57/93/59/360_F_557935994_qpvh8RhzkbAH8xCRsf81XaBX7zZS0GOx.jpg'),
-    viz.addTexture('https://img.freepik.com/premium-photo/red-barn-sits-farm-with-dirt-road-background_14117-11510.jpg'),
-    viz.addTexture('https://www.shutterstock.com/shutterstock/videos/17312977/thumb/11.jpg?ip=x480'),
-    viz.addTexture('https://img.freepik.com/free-photo/farmland_1112-1235.jpg'),
-]
+# Ielādē textūru
+floor_texture = viz.addTexture('https://t3.ftcdn.net/jpg/05/66/99/80/360_F_566998073_5f6ZEkEeJLj2DaVhAOSq0N5TK2apcHWb.jpg')
 
-# Create walls
-wall_sizes = [(0.2, 10, 30), (0.2, 10, 30), (30, 10, 0.2), (30, 10, 0.2)]  # Sizes of the walls
-wall_positions = [(-15, 5, 0), (15, 5, 0), (0, 5, 15), (0, 5, -15)]  # Positions of the walls
+# Uztaisa grīdu
+floor = vizshape.addPlane(size=(80, 80), axis=vizshape.AXIS_Y, cullFace=False)
+floor.setPosition(0, 0, 0)
+floor.texture(floor_texture)  
+floor_size = 30
 
-for size, pos, texture in zip(wall_sizes, wall_positions, stripe_textures):
-    wall = vizshape.addBox(size=size)
-    wall.setPosition(*pos)
-    wall.texture(texture)  
-#-------------------------------------------------------------------------------
+# Apgaismojums
+point_lights = []
+light_positions = [(-10, 5, -10), (-10, 5, 10), (10, 5, -10), (10, 5, 10)]
+for pos in light_positions:
+    point_light = viz.addPointLight()
+    point_light.setPosition(pos[0], pos[1], pos[2])
+    point_light.intensity(0.6)
+    point_lights.append(point_light)
+
+#---------------------------------------------------------------------------
